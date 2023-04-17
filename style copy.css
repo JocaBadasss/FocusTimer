@@ -1,0 +1,71 @@
+@media (min-width: 768px) {
+  body {
+    /* display: grid;
+  align-content: center;
+  justify-content: center; */
+
+    background-color: var(--bg-color);
+
+    font-family: var(--ff-family);
+    font-size: var(--fs-body);
+  }
+
+  main {
+    display: flex;
+    height: 100vh;
+
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .timer {
+    width: clamp(15rem, 5rem + 10vw, 32.1rem);
+    height: (10rem, 5rem + 10vw, 21.3rem);
+
+    font-weight: 500;
+  }
+
+  .time {
+    height: clamp(5rem, 5rem + 15vw, 11.7rem);
+    display: flex;
+  }
+  .controls {
+    width: clamp(15rem, 15rem + 13vw, 31.2rem);
+    height: clamp(2rem, 10rem + 15vw, 4.8rem);
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: clamp(2rem, 5rem + 10vw, 4.8rem);
+  }
+
+  button {
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+  }
+
+  .sounds {
+    width: clamp(14rem, 10rem + 15vw, 30.8rem);
+    height: clamp(16rem, 10rem + 15vw, 33.6rem);
+
+    display: grid;
+    grid-template-areas: "2 2";
+    gap: clamp(0.1rem, 1rem + 1vw, 3.2rem);
+  }
+
+  .sounds button {
+    background: var(--bg-color-primary);
+
+    border-radius: 24px;
+  }
+
+  .sounds svg {
+    width: clamp(2rem, 2rem + 2vw, 5.6rem);
+    height: clamp(2rem, 2rem + 2vw, 5.6rem);
+  }
+
+  .sounds button.on {
+    background: hsla(194, 97%, 31%, 1);
+  }
+}
