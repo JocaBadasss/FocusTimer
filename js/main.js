@@ -1,20 +1,32 @@
-const play = document.querySelector(".play")
-const pause = document.querySelector(".pause")
-const stop = document.querySelector(".stop")
-const plus5 = document.querySelector(".plus5")
-const minus5 = document.querySelector(".minus5")
-const minutes = document.querySelector(".minutes")
-const seconds = document.querySelector(".seconds")
-let countDownStatus
+import Timer from "./timer.js"
+import Controls from "./controls.js"
+import Events from "./events.js"
 
-play.addEventListener("click", countDown)
+let controls = Controls({})
+let timer = Timer({ controls })
+let event = Events({
+  controls,
+  timer,
+})
 
-function countDown() {
-  countDownStatus = setTimeout(() => {
-    let second = Number(seconds.textContent)
+event.Play()
 
-    seconds.textContent = second - 1
+event.Pause()
 
-    countDown()
-  }, 1000)
-}
+event.Stop()
+
+event.Plus5()
+
+event.Minus5()
+
+event.SoundOn()
+
+event.SoundOff()
+
+event.FlorestDisplayChange()
+
+event.RainDisplayChange()
+
+event.CoffeShopDisplayChange()
+
+event.FireplaceDisplayChange()

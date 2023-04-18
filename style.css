@@ -11,8 +11,8 @@
 
   --bg-color: #ffffff;
 
-  --bg-color-primary: hsla(var(--hue), 9%, 89%, 1);
-  --bg-color-secondary: hsla(194, 97%, 31%, 1);
+  --bg-color-primary: hsla(240, 9%, 89%, 1);
+  --bg-color-secondary: hsla(220, 97%, 31%, 1);
 
   --text-color: hsla(var(--hue), 6%, 21%, 1);
   --text-color-secondary: hsla(0, 0%, 100%, 1);
@@ -45,6 +45,8 @@ main {
 
   justify-content: space-evenly;
   align-items: center;
+
+  position: relative;
 }
 
 .timer {
@@ -69,6 +71,11 @@ main {
   display: flex;
   justify-content: space-between;
   /* margin-top: clamp(2rem, 5rem + 10vw, 4.8rem); */
+}
+
+.controls svg:hover path,
+.sound-controls svg:hover path {
+  fill: var(--bg-color-secondary);
 }
 
 button {
@@ -96,10 +103,16 @@ button {
   border-radius: 24px;
 }
 
-/* .sounds svg {
-  height: clamp(2rem, 2rem + 3vw, 5.6rem);
-} */
-
 .sounds button.on {
-  background: hsla(194, 97%, 31%, 1);
+  background: var(--bg-color-secondary);
+}
+
+.sounds button.on svg path {
+  fill: var(--bg-color);
+}
+
+.sound-controls {
+  position: absolute;
+  bottom: 0;
+  right: 4rem;
 }
