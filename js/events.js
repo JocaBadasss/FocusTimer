@@ -12,11 +12,13 @@ import {
   soundOffDisplay,
 } from "./variables.js"
 
-export default function Events({ controls, timer }) {
+export default function Events({ controls, timer, sounds }) {
+  let rainSoundAudio
   function Play() {
     playDisplay.addEventListener("click", () => {
       controls.play()
       timer.countDown()
+      sounds.firstPlay()
     })
   }
 
@@ -24,6 +26,7 @@ export default function Events({ controls, timer }) {
     pauseDisplay.addEventListener("click", () => {
       controls.pause()
       timer.hold()
+      sounds.StopAll()
     })
   }
 
@@ -32,6 +35,7 @@ export default function Events({ controls, timer }) {
       controls.stop()
       timer.hold()
       timer.reset()
+      sounds.StopAll()
     })
   }
 
@@ -50,36 +54,46 @@ export default function Events({ controls, timer }) {
   function SoundOff() {
     soundOnDisplay.addEventListener("click", () => {
       controls.changeToSoundOff()
+      sounds.MuteAll()
     })
   }
 
   function SoundOn() {
     soundOffDisplay.addEventListener("click", () => {
       controls.changeToSoundOn()
+      sounds.Unmute()
     })
   }
 
   function FlorestDisplayChange() {
     florestDisplay.addEventListener("click", () => {
       controls.soundDisplayChange(florestDisplay)
+      sounds.StopOthersSounds("Florest")
+      sounds.FlorestPlay()
     })
   }
 
   function RainDisplayChange() {
     rainDisplay.addEventListener("click", () => {
       controls.soundDisplayChange(rainDisplay)
+      sounds.StopOthersSounds("Rain")
+      sounds.RainPlay()
     })
   }
 
   function CoffeShopDisplayChange() {
     coffeShopDisplay.addEventListener("click", () => {
       controls.soundDisplayChange(coffeShopDisplay)
+      sounds.StopOthersSounds("CoffeeShop")
+      sounds.CoffeeShopPlay()
     })
   }
 
   function FireplaceDisplayChange() {
     fireplaceDisplay.addEventListener("click", () => {
       controls.soundDisplayChange(fireplaceDisplay)
+      sounds.StopOthersSounds("Fireplace")
+      sounds.FireplacePlay()
     })
   }
 

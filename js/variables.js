@@ -10,6 +10,7 @@ const fireplaceDisplay = document.querySelector(".fireplace")
 const soundOnDisplay = document.querySelector(".sound-on")
 const soundOffDisplay = document.querySelector(".sound-off")
 
+
 export {
   playDisplay,
   pauseDisplay,
@@ -22,4 +23,5 @@ export {
   fireplaceDisplay,
   soundOnDisplay,
   soundOffDisplay,
+
 }

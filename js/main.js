@@ -1,17 +1,20 @@
 import Timer from "./timer.js"
 import Controls from "./controls.js"
 import Events from "./events.js"
+import Sounds from "./sounds.js"
 
 let controls = Controls({})
 let timer = Timer({ controls })
+let sounds = Sounds({})
 let event = Events({
   controls,
   timer,
+  sounds,
 })
 
-const florestSoundAudio = new Audio(
-  "https://drive.google.com/file/d/1CRHkV72WUMdcqec5GT_KdsqFz0z3VAOA/view"
-)
+
+
+
 
 event.Play()
 
