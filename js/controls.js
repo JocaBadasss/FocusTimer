@@ -8,6 +8,7 @@ import {
   soundOnDisplay,
   soundOffDisplay,
 } from "./variables.js"
+
 export default function Controls() {
   function play() {
     playDisplay.classList.add("hide")
