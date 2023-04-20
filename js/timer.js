@@ -51,7 +51,7 @@ export default function Timer({ controls }) {
       newMinutes = minute + 5
       updateTimer(newMinutes, second)
     }
-    if (operator == "-" && minute > 0) {
+    if (operator == "-" && minute > 5) {
       newMinutes = minute - 5
       updateTimer(newMinutes, second)
     }
