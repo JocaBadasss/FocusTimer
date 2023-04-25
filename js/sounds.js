@@ -3,6 +3,10 @@ import {
   rainDisplay,
   coffeShopDisplay,
   fireplaceDisplay,
+  florestVolDisplay,
+  rainVolDisplay,
+  coffeShopVolDisplay,
+  fireplaceVolDisplay,
 } from "./variables.js"
 
 export default function Sounds() {
@@ -23,6 +27,14 @@ export default function Sounds() {
   )
 
   let ambientDisplayOn
+
+  function startOnVolZero() {
+    florestSoundAudio.volume = 0
+    rainSoundAudio.volume = 0
+    coffeShopAudio.volume = 0
+    fireplaceAudio.volume = 0
+  }
+  startOnVolZero()
 
   function playInLoop() {
     florestSoundAudio.loop = true
@@ -60,15 +72,31 @@ export default function Sounds() {
     switch (ambientDisplayOn) {
       case (ambientDisplayOn = florestDisplay):
         FlorestPlay()
+        if (florestVolDisplay.value == "0.00001") {
+          florestSoundAudio.volume = 0.5
+          florestVolDisplay.value = 0.5
+        }
         break
       case (ambientDisplayOn = rainDisplay):
         RainPlay()
+        if (rainVolDisplay.value == "0.00001") {
+          rainSoundAudio.volume = 0.5
+          rainVolDisplay.value = 0.5
+        }
         break
       case (ambientDisplayOn = coffeShopDisplay):
         CoffeeShopPlay()
+        if (coffeShopVolDisplay.value == "0.00001") {
+          coffeShopAudio.volume = 0.5
+          coffeShopVolDisplay.value = 0.5
+        }
         break
       case (ambientDisplayOn = fireplaceDisplay):
         FireplacePlay()
+        if (fireplaceVolDisplay.value == "0.00001") {
+          fireplaceAudio.volume = 0.5
+          fireplaceVolDisplay.value = 0.5
+        }
     }
     Unmute()
   }
@@ -78,6 +106,58 @@ export default function Sounds() {
     rainSoundAudio.muted = false
     coffeShopAudio.muted = false
     fireplaceAudio.muted = false
+  }
+
+  function ChangeSoundVolume(soundName) {
+    switch (soundName) {
+      case "Florest":
+        florestSoundAudio.volume = florestVolDisplay.value
+        break
+      case "Rain":
+        rainSoundAudio.volume = rainVolDisplay.value
+        break
+      case "CoffeeShop":
+        coffeShopAudio.volume = coffeShopVolDisplay.value
+        break
+      case "Fireplace":
+        fireplaceAudio.volume = fireplaceVolDisplay.value
+        break
+      default:
+        console.log("afff")
+    }
+  }
+
+  console.log(florestVolDisplay.value)
+
+  function ChangeSoundVolumeToFifty(soundName) {
+    switch (soundName) {
+      case "Florest":
+        if (florestVolDisplay.value == "0.00001") {
+          florestSoundAudio.volume = 0.5
+          florestVolDisplay.value = 0.5
+        }
+        break
+      case "Rain":
+        if (rainVolDisplay.value == "0.00001") {
+          rainSoundAudio.volume = 0.5
+          rainVolDisplay.value = 0.5
+        }
+        break
+      case "CoffeeShop":
+        if (coffeShopVolDisplay.value == "0.00001") {
+          coffeShopAudio.volume = 0.5
+          coffeShopVolDisplay.value = 0.5
+        }
+        break
+      case "Fireplace":
+        if (fireplaceVolDisplay.value == "0.00001") {
+          fireplaceAudio.volume = 0.5
+          fireplaceVolDisplay.value = 0.5
+        }
+        break
+      default:
+        console.log("afff")
+    }
   }
 
   function StopOthersSounds(soundName) {
@@ -158,5 +238,7 @@ export default function Sounds() {
     Unmute,
     MuteAll,
     StopOthersSounds,
+    ChangeSoundVolume,
+    ChangeSoundVolumeToFifty,
   }
 }

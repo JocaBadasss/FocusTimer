@@ -10,6 +10,12 @@ import {
   fireplaceDisplay,
   soundOnDisplay,
   soundOffDisplay,
+  lightModeButton,
+  darkModeButton,
+  florestVolDisplay,
+  rainVolDisplay,
+  coffeShopVolDisplay,
+  fireplaceVolDisplay,
 } from "./variables.js"
 
 export default function Events({ controls, timer, sounds }) {
@@ -70,6 +76,7 @@ export default function Events({ controls, timer, sounds }) {
       controls.soundDisplayChange(florestDisplay)
       sounds.StopOthersSounds("Florest")
       sounds.FlorestPlay()
+      sounds.ChangeSoundVolumeToFifty("Florest")
     })
   }
 
@@ -78,6 +85,7 @@ export default function Events({ controls, timer, sounds }) {
       controls.soundDisplayChange(rainDisplay)
       sounds.StopOthersSounds("Rain")
       sounds.RainPlay()
+      sounds.ChangeSoundVolumeToFifty("Rain")
     })
   }
 
@@ -86,6 +94,7 @@ export default function Events({ controls, timer, sounds }) {
       controls.soundDisplayChange(coffeShopDisplay)
       sounds.StopOthersSounds("CoffeeShop")
       sounds.CoffeeShopPlay()
+      sounds.ChangeSoundVolumeToFifty("CoffeeShop")
     })
   }
 
@@ -94,6 +103,43 @@ export default function Events({ controls, timer, sounds }) {
       controls.soundDisplayChange(fireplaceDisplay)
       sounds.StopOthersSounds("Fireplace")
       sounds.FireplacePlay()
+      sounds.ChangeSoundVolumeToFifty("Fireplace")
+    })
+  }
+
+  function FlorestVolumeChange() {
+    florestVolDisplay.addEventListener("click", () => {
+      sounds.ChangeSoundVolume("Florest")
+    })
+  }
+
+  function RainVolumeChange() {
+    rainVolDisplay.addEventListener("click", () => {
+      sounds.ChangeSoundVolume("Rain")
+    })
+  }
+
+  function CoffeShopVolumeChange() {
+    coffeShopVolDisplay.addEventListener("click", () => {
+      sounds.ChangeSoundVolume("CoffeeShop")
+    })
+  }
+
+  function FireplaceVolumeChange() {
+    fireplaceVolDisplay.addEventListener("click", () => {
+      sounds.ChangeSoundVolume("Fireplace")
+    })
+  }
+
+  function DarkModeOn() {
+    lightModeButton.addEventListener("click", () => {
+      controls.changeToDarkMode()
+    })
+  }
+
+  function LightModeOn() {
+    darkModeButton.addEventListener("click", () => {
+      controls.changeToLightMode()
     })
   }
 
@@ -109,5 +155,11 @@ export default function Events({ controls, timer, sounds }) {
     FireplaceDisplayChange,
     SoundOn,
     SoundOff,
+    LightModeOn,
+    DarkModeOn,
+    FlorestVolumeChange,
+    RainVolumeChange,
+    CoffeShopVolumeChange,
+    FireplaceVolumeChange,
   }
 }

@@ -12,10 +12,6 @@ let event = Events({
   sounds,
 })
 
-
-
-
-
 event.Play()
 
 event.Pause()
@@ -31,9 +27,17 @@ event.SoundOn()
 event.SoundOff()
 
 event.FlorestDisplayChange()
+event.FlorestVolumeChange()
 
 event.RainDisplayChange()
+event.RainVolumeChange()
 
 event.CoffeShopDisplayChange()
+event.CoffeShopVolumeChange()
 
 event.FireplaceDisplayChange()
+event.FireplaceVolumeChange()
+
+event.DarkModeOn()
+
+event.LightModeOn()

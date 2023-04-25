@@ -7,14 +7,18 @@
 :root {
   font-size: 62.5%;
 
-  --hue: 240;
+  --hue: 194;
 
   --bg-color: #ffffff;
 
   --bg-color-primary: hsla(240, 9%, 89%, 1);
-  --bg-color-secondary: hsla(220, 97%, 31%, 1);
+  --bg-color-secondary: hsla(194, 97%, 31%, 1);
 
-  --text-color: hsla(var(--hue), 6%, 21%, 1);
+  --bg-color-dark: #121214;
+  --bg-color-primary-dark: #29292e;
+  --bg-color-secondary-dark: #0a3442;
+  --text-color-dark: #c4c4cc;
+
   --text-color-secondary: hsla(0, 0%, 100%, 1);
 
   --ff-family: "Roboto", sans-serif;
@@ -29,10 +33,6 @@
 }
 
 body {
-  /* display: grid;
-  align-content: center;
-  justify-content: center; */
-
   background-color: var(--bg-color);
 
   font-family: var(--ff-family);
@@ -74,7 +74,9 @@ main {
 }
 
 .controls svg:hover path,
-.sound-controls svg:hover path {
+.sound-controls svg:hover path,
+.light-mode svg:hover path,
+.sounds button:hover svg path {
   fill: var(--bg-color-secondary);
 }
 
@@ -101,6 +103,41 @@ button {
   height: 15.2rem;
 
   border-radius: 24px;
+  padding: 2.4rem;
+}
+
+.sounds button input {
+  width: 9rem;
+  height: 0.5rem;
+  margin-top: 3.2rem;
+  background-color: #323238;
+  border-radius: 5px;
+
+  appearance: none;
+}
+
+.sounds button.on input {
+  background-color: var(--bg-color);
+}
+
+.sounds button input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 100%;
+  background-color: #323238;
+}
+
+.sounds button.on input::-webkit-slider-thumb {
+  background-color: var(--text-color-secondary);
+}
+
+.sounds button input::-moz-range-thumb {
+  border: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 100%;
+  background-color: #323238;
 }
 
 .sounds button.on {
@@ -114,5 +151,63 @@ button {
 .sound-controls {
   position: absolute;
   bottom: 0;
-  right: 4rem;
+  right: 6.5rem;
+}
+
+.color-mode {
+  position: absolute;
+  right: 8rem;
+  top: -2rem;
+}
+
+/* Dark Mode */
+
+body.dark {
+  background: var(--bg-color-dark);
+}
+
+.sounds.dark button.on {
+  background: #0a3442;
+}
+
+.sounds.dark button {
+  background: var(--bg-color-primary-dark);
+}
+
+.sounds.dark button input::-webkit-slider-thumb {
+  background-color: var(--text-color-secondary);
+}
+
+.sounds.dark button svg path {
+  fill: var(--text-color-dark);
+}
+
+.sounds.dark button input {
+  background-color: var(--bg-color);
+}
+
+.sounds.dark button.on svg path {
+  fill: var(--bg-color);
+}
+
+.time.dark {
+  color: var(--text-color-secondary);
+}
+
+.controls.dark svg path {
+  fill: var(--text-color-dark);
+}
+
+.sound-controls.dark svg path {
+  fill: var(--text-color-secondary);
+}
+
+.controls.dark svg:hover path,
+.sounds.dark button:hover svg path {
+  fill: var(--text-color-secondary);
+}
+
+.sound-controls.dark svg:hover path,
+.dark-mode svg:hover path {
+  fill: var(--text-color-dark);
 }

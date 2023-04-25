@@ -7,6 +7,13 @@ import {
   fireplaceDisplay,
   soundOnDisplay,
   soundOffDisplay,
+  darkModeButton,
+  lightModeButton,
+  bodyDisplay,
+  timeDisplay,
+  controlsDisplay,
+  soundsDisplay,
+  soundControlsDisplay,
 } from "./variables.js"
 
 export default function Controls() {
@@ -69,6 +76,26 @@ export default function Controls() {
     }
   }
 
+  function changeToDarkMode() {
+    darkModeButton.classList.remove("hide")
+    lightModeButton.classList.add("hide")
+    bodyDisplay.classList.add("dark")
+    timeDisplay.classList.add("dark")
+    controlsDisplay.classList.add("dark")
+    soundControlsDisplay.classList.add("dark")
+    soundsDisplay.classList.add("dark")
+  }
+
+  function changeToLightMode() {
+    darkModeButton.classList.add("hide")
+    lightModeButton.classList.remove("hide")
+    bodyDisplay.classList.remove("dark")
+    timeDisplay.classList.remove("dark")
+    controlsDisplay.classList.remove("dark")
+    soundControlsDisplay.classList.remove("dark")
+    soundsDisplay.classList.remove("dark")
+  }
+
   return {
     play,
     pause,
@@ -76,5 +103,7 @@ export default function Controls() {
     soundDisplayChange,
     changeToSoundOff,
     changeToSoundOn,
+    changeToDarkMode,
+    changeToLightMode,
   }
 }
