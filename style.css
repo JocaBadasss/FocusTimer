@@ -23,7 +23,7 @@
 
   --ff-family: "Roboto", sans-serif;
 
-  --fs-body: clamp(5rem, 6rem + 5vw, 12.6rem);
+  --fs-body: clamp(10rem, 6rem + 5vw, 12.6rem);
   /* --fs-body: 12.6rem; */
 }
 
@@ -33,6 +33,8 @@
 }
 
 body {
+  /* display: ; */
+
   background-color: var(--bg-color);
 
   font-family: var(--ff-family);
@@ -40,37 +42,40 @@ body {
 }
 
 main {
-  display: flex;
-  height: 100vh;
+  display: grid;
+  justify-items: center;
 
-  justify-content: space-evenly;
-  align-items: center;
-
-  position: relative;
+  gap: 5.8rem;
+  min-height: 100vh;
 }
 
 .timer {
-  width: clamp(20rem, 15rem + 15vw, 32.1rem);
-  height: clamp(10rem, 15rem + 15vw, 21.3rem);
+  width: clamp(25rem, 23rem + 24vw, 32.1rem);
+  height: clamp(13rem, 11rem + 14.5vw, 21.3rem);
 
   display: grid;
-
-  gap: clamp(2rem, 5rem + 10vw, 4.8rem);
+  justify-items: center;
 
   font-weight: 500;
 }
 
 .time {
-  height: clamp(3rem, 5rem + 15vw, 11.7rem);
+  height: clamp(3rem, 6rem + 9vw, 11.7rem);
   display: flex;
+
+  margin-bottom: 3rem;
 }
 .controls {
-  width: clamp(15rem, 15rem + 13vw, 31.2rem);
-  height: clamp(2rem, 10rem + 15vw, 4.8rem);
+  width: clamp(22rem, 18rem + 17.4vw, 31.2rem);
+  height: clamp(2rem, 2.98rem + 2.1vw, 4.8rem);
 
   display: flex;
   justify-content: space-between;
-  /* margin-top: clamp(2rem, 5rem + 10vw, 4.8rem); */
+}
+
+.controls svg {
+  width: clamp(3rem, 3vw + 2.63rem, 3.8rem);
+  height: clamp(3rem, 3vw + 2.63rem, 3.8rem);
 }
 
 .controls svg:hover path,
@@ -88,22 +93,22 @@ button {
 }
 
 .sounds {
-  width: clamp(14rem, 15rem + 15vw, 30.8rem);
-  height: clamp(16rem, 20rem + 20vw, 33.6rem);
+  width: clamp(14rem, 21rem + 21vw, 30.8rem);
+  height: clamp(16rem, 23rem + 23vw, 33.6rem);
 
   display: grid;
   grid-template-areas: "2 2";
-  gap: clamp(0.1rem, 2rem + 2vw, 3.2rem);
+  gap: clamp(0.1rem, 2rem + 2.6vw, 3.2rem);
 }
 
 .sounds button {
   background: var(--bg-color-primary);
 
-  width: 13.8rem;
-  height: 15.2rem;
+  width: clamp(12rem, 9rem + 10.5vw, 13.8rem);
+  height: clamp(13.5rem, 10.5rem + 10vw, 15.2rem);
 
   border-radius: 24px;
-  padding: 2.4rem;
+  /* padding: 2.4rem; */
 }
 
 .sounds button input {
@@ -149,15 +154,21 @@ button {
 }
 
 .sound-controls {
-  position: absolute;
-  bottom: 0;
-  right: 6.5rem;
+  width: 5.5rem;
+  height: 5.5rem;
+
+  display: flex;
+
+  margin-bottom: 3rem;
 }
 
 .color-mode {
-  position: absolute;
-  right: 8rem;
-  top: -2rem;
+  width: 4.4rem;
+  height: 4.4rem;
+
+  display: flex;
+
+  margin-top: 3rem;
 }
 
 /* Dark Mode */
@@ -210,4 +221,117 @@ body.dark {
 .sound-controls.dark svg:hover path,
 .dark-mode svg:hover path {
   fill: var(--text-color-dark);
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+
+    --hue: 194;
+
+    --bg-color: #ffffff;
+
+    --bg-color-primary: hsla(240, 9%, 89%, 1);
+    --bg-color-secondary: hsla(194, 97%, 31%, 1);
+
+    --bg-color-dark: #121214;
+    --bg-color-primary-dark: #29292e;
+    --bg-color-secondary-dark: #0a3442;
+    --text-color-dark: #c4c4cc;
+
+    --text-color-secondary: hsla(0, 0%, 100%, 1);
+
+    --ff-family: "Roboto", sans-serif;
+
+    --fs-body: clamp(5rem, 6rem + 5vw, 12.6rem);
+    /* --fs-body: 12.6rem; */
+  }
+  main {
+    display: flex;
+    height: 100vh;
+
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: relative;
+
+    gap: 0;
+  }
+
+  .timer {
+    width: clamp(20rem, 15rem + 15vw, 32.1rem);
+    height: clamp(10rem, 15rem + 15vw, 21.3rem);
+
+    display: grid;
+
+    gap: clamp(2rem, 5rem + 10vw, 4.8rem);
+
+    font-weight: 500;
+
+    justify-items: normal;
+  }
+
+  .time {
+    height: clamp(3rem, 5rem + 15vw, 11.7rem);
+    display: flex;
+
+    margin-bottom: 0;
+  }
+
+  .controls {
+    width: clamp(15rem, 15rem + 13vw, 31.2rem);
+    height: clamp(2rem, 10rem + 15vw, 4.8rem);
+
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: clamp(2rem, 5rem + 10vw, 4.8rem); */
+  }
+
+  .controls svg {
+    width: clamp(3rem, 3vw + 2.6rem, 4.8rem);
+    height: clamp(3rem, 3vw + 2.6rem, 4.8rem);
+  }
+
+  .sounds {
+    width: clamp(14rem, 15rem + 15vw, 30.8rem);
+    height: clamp(16rem, 20rem + 20vw, 33.6rem);
+
+    display: grid;
+    grid-template-areas: "2 2";
+    gap: clamp(0.1rem, 2rem + 2vw, 3.2rem);
+  }
+
+  .sounds button {
+    background: var(--bg-color-primary);
+
+    width: 13.8rem;
+    height: 15.2rem;
+
+    border-radius: 24px;
+    padding: 2.4rem;
+  }
+
+  .sound-controls {
+    width: auto;
+    height: auto;
+
+    display: block;
+    margin-bottom: 0;
+
+    position: absolute;
+    bottom: 0;
+    right: 6.5rem;
+  }
+
+  .color-mode {
+    width: auto;
+    height: auto;
+
+    position: absolute;
+    right: 8rem;
+    top: -2rem;
+
+    display: block;
+    margin-top: 0;
+  }
 }
